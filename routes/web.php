@@ -3,22 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\MembersController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/books', function() {
-    // return 'Ini daftar buku';
-    return view('books.index');
-});
-
-Route::get('/categories', function(){
-    return view('categories.index');
-});
-
-Route::get('/members', function() {
-    return view('members.index');
-});
-
+// route mengakses class
 Route::get('/books', [BookController::class, 'index']);
+
+Route::get('/categories', [CategoriesController::class, 'index']);
+
+Route::get('/members', [MembersController::class, 'index']);
