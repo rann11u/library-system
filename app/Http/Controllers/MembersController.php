@@ -17,4 +17,9 @@ class MembersController extends Controller
 
         return view('members.index', compact ('members'));
     }
+
+        public function show($id){
+        return 'Member <br> ID Member: ' . $id;
+    }
+
 }
