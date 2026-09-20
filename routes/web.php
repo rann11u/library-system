@@ -19,4 +19,6 @@ Route::get('/categories', [CategoriesController::class, 'index']);
 
 Route::get('/members', [MembersController::class, 'index']);
 
+Route::get('/members/{id}', [MembersController::class, 'show']);
+
 Route::get('/dashboard', [DashboardController::class, 'index']);
