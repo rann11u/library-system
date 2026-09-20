@@ -48,6 +48,8 @@ class BookController extends Controller
     }
 
     public function show($id){
-        return 'Detail Buku <br> ID Buku: ' . $id;
+        $idBooks = $id;
+
+        return view('books.show', compact('idBooks'));
     }
 }
