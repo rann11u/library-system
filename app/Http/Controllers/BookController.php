@@ -2,49 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
 use Illuminate\Http\Request;
+use App\Models\Book;
 
 class BookController extends Controller
 {
     public function index() {
         $title = "Daftar Buku";
         $description = "Daftar buku yang tersedia di perpustakaan";
-        // $books = [
-        //     'Pemrograman PHP',
-        //     'Laravel untuk Pemula',
-        //     'Basis Data',
-        //     'Algoritma dan Pemrograman',
-        //     'Pemrograman Berorientasi Objek',
-        //     'Habis gelap terbitlah terang',
-        //     'Atomic Habits',
-        //     'Madilog'
-        // ]; 
-
-        // $authors = [
-        //     'Budi Raharjo',
-        //     'Rian Ariona',
-        //     'Fathansyah',
-        //     'Rinaldi Munir',
-        //     'Rosa A.S.',
-        //     'R.A. Kartini',
-        //     'James Clear',
-        //     'Tan Malaka'
-        // ];
-
-        // $years = [
-        //     2018,
-        //     2021,
-        //     2015,
-        //     2016,
-        //     2019,
-        //     1911,
-        //     2018,
-        //     1943
-        // ];
-
         $books = Book::all();
-
         $stock = 33;
 
         return view('books.index', compact('books', 'stock'));
@@ -55,4 +21,56 @@ class BookController extends Controller
 
         return view('books.show', compact('idBooks'));
     }
+
+    public function create(){
+        return view('books.create');
+    }
+
+    public function store(Request $request){
+        Book::create([
+            'title' => $request->title,
+            'author' => $request->author,
+            'year' => $request->year,
+            'stock' => $request->stock,
+        ]);
+
+        return redirect()->route('books.index');
+    }
+
+    public function edit(Book $book){
+        return view('books.edit', compact('book'));
+    }
+
+    public function update(Request $request, Book $book){
+        $book->update([
+            'title' => $request->title,
+            'author' => $request->author,
+            'year' => $request->year,
+            'stock' => $request->stock,
+        ]);
+
+        return redirect()->route('books.index');
+    }
+
+    public function destroy(Book $book){
+        $book->delete();
+
+        return redirect()->route('books.index');
+    }
+
+
+    // public function store (Request $request){
+    //     $validated = $request->validate([
+    //         'title' => 'required|string|max:255',
+    //         'author' => 'required|string|max:255',
+    //         'year' => 'required|integer|min:1900',
+    //         'stock' => 'required|integer|min:0',
+    //     ]);
+
+    //     Book:create($validated);
+
+    //     return redirect()
+    //         ->route('books.index')
+    //         ->with('success', 'Data buku berhasil ditambahkan.');
+    // }
 }

@@ -14,6 +14,10 @@
 
     @section('content')
 
+    <div class="table-actions">
+        <a href="{{ route('books.create') }}" class="btn btn-add">+ Tambah Buku</a>
+    </div>
+
     <h2>Daftar Buku</h2>
 
     <table class="book-table">
@@ -25,6 +29,7 @@
                 <th>Penulis</th>
                 <th>Tahun</th>
                 <th>Stok</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +41,16 @@
                     <td>{{ $book->author }}</td>
                     <td>{{ $book->year }}</td>
                     <td>{{ $book->stock }}</td>
+                    <td class="action-cell">
+                        <a href="{{ route('books.edit', $book) }}" class="btn btn-edit">Edit</a>
+
+                        <form action="{{ route('books.destroy', $book) }}" method="POST"
+                            onsubmit="return confirm('Yakin hapus buku ini?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-delete">Hapus</button>
+                        </form>
+                    </td>    
                 </tr>
             @endforeach
         </tbody>

@@ -11,14 +11,11 @@ Route::get('/', function () {
 });
 
 // route mengakses class
-Route::get('/books', [BookController::class, 'index']);
-
-Route::get('/books/{id}', [BookController::class, 'show']);
+Route::resource('books', BookController::class);
 
 Route::get('/categories', [CategoriesController::class, 'index']);
 
 Route::get('/members', [MembersController::class, 'index']);
-
 Route::get('/members/{id}', [MembersController::class, 'show']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
