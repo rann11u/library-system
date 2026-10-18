@@ -19,22 +19,38 @@
 
         <div>
             <label>Judul</label><br>
-            <input type="text" name="title">
+            <input type="text" name="title" value="{{ old('title') }}" required>
+            
+            @error('title')
+                <p>{{ $message }}</p>
+            @enderror
         </div>
 
         <div>
             <label>Penulis</label><br>
-            <input type="text" name="author">
+            <input type="text" name="author" value="{{ old('author') }}" required>
+
+            @error('author')
+                <p>{{ $message }}</p>
+            @enderror
         </div>
 
         <div>
             <label>Tahun</label><br>
-            <input type="number" name="year">
+            <input type="number" name="year" value="{{ old('year') }}" required>
+
+            @error('year')
+                <p>{{ $message }}</p>
+            @enderror
         </div>
 
         <div>
             <label>Stok</label><br>
-            <input type="number" name="stock">
+            <input type="number" name="stock" min="0" value="{{ old('stock') }}" required>
+
+            @error('stock')
+                <p>{{ $message }}</p>
+            @enderror
         </div>
 
         <button type="submit">Simpan</button>

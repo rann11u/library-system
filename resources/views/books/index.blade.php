@@ -56,8 +56,8 @@
         </tbody>
     </table>
 
-    @if($stock > 0)
-        <p class="stock-info">Stok tersedia: {{ $stock }}</p>
+    @if($totalBooks > 0)
+        <p class="stock-info">Stok tersedia: {{ $totalBooks }}</p>
     @else
         <p class="stock-empty">Stok habis.</p>
     @endif
