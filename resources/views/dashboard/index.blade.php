@@ -7,8 +7,8 @@
     <h2>Library Sytem Dashboard</h2>
     <p>Selamat datang di Sistem Informasi Perpustakaan.</p>
 
-    @if($stockBook > 0)
-        <p>Stok Buku yang tersedia: {{ $stockBook }}</p>
+    @if($totalBooks > 0)
+        <p>Stok Buku yang tersedia: {{ $totalBooks }}</p>
     @else
         <p>Stok habis.</p>
     @endif
@@ -19,8 +19,8 @@
         <p>Member 0</p>
     @endif
 
-    @if($countCategories > 0)
-        <p>Jumlah Kategori {{ $countCategories }}</p>
+    @if($totalCatgories > 0)
+        <p>Jumlah Kategori {{ $totalCatgories }}</p>
     @else
         <p>Stok habis.</p>
     @endif
