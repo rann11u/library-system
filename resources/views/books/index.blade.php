@@ -26,6 +26,7 @@
                 <th>No</th>
                 <th>Id buku</th>
                 <th>Judul</th>
+                <th>Kategori</th>
                 <th>Penulis</th>
                 <th>Tahun</th>
                 <th>Stok</th>
@@ -38,6 +39,9 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $book->id }}</td>
                     <td>{{ $book->title }}</td>
+                    <td>
+                        <p>{{ $book->category?->name ?? 'Belum ada kategori' }}</p>
+                    </td> 
                     <td>{{ $book->author }}</td>
                     <td>{{ $book->year }}</td>
                     <td>{{ $book->stock }}</td>
@@ -50,7 +54,7 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-delete">Hapus</button>
                         </form>
-                    </td>    
+                    </td>
                 </tr>
             @endforeach
         </tbody>
