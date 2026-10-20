@@ -3,20 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
+use App\Models\Category;
 
 class CategoriesController extends Controller
 {
     public function index(){
-       $categories = [
-            'Pemrograman',
-            'Basis Data',
-            'Jaringan Komputer',
-            'Sistem Informasi',
-            'Algoritma',
-            'Novel fiksi',
-            'Novel non-fiksi'
-       ];
+        //Title kategori
+        $title = "Daftar Kategori";
+        $description = "Berikut daftar kategori di perpustakaan";
 
-       return view('categories.index', compact('categories'));
+        //get all categories with books
+        $categories = Category::with('books')->get();
+
+        return view('categories.index', compact('categories', 'title', 'description'));
     }
 }

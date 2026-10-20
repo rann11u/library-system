@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.book-table {
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.book-table th,
+.book-table td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Judul kolom Aksi di tengah */
+.book-table th:last-child {
+    text-align: center;
+}
+
+.book-table thead {
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+.book-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.book-table tbody tr:hover {
+    background-color: #eaf2f8;
+}
+
+.stock-info,
+.stock-empty {
+    text-align: center;
+    font-weight: bold;
+}
+
+.stock-info {
+    color: green;
+}
+
+.stock-empty {
+    color: red;
+}
+
+/* Sel di dalam tabel tetap center (menang atas td text-align: left) */
+.book-table td.stock-info,
+.book-table td.stock-empty {
+    text-align: center;
+}
+
+/* ===== Tombol ===== */
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn-add {
+    background-color: #27ae60;
+}
+
+.btn-edit {
+    background-color: #2980b9;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+}
+
+/* Bar di atas tabel (tombol tambah) */
+.table-actions {
+    max-width: 1100px;
+    margin: 20px auto 0;
+    text-align: right;
+}
+
+/* Kolom aksi: Edit & Hapus sejajar dan di tengah */
+.action-cell {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.action-cell form {
+    display: inline;
+}
+
+/* ===== Halaman Kategori ===== */
+.category-table {
+    max-width: 700px;
+}
+
+.category-table th:first-child,
+.category-table td:first-child {
+    width: 70px;
+}
+
+.category-table th:last-child,
+.category-table td:last-child {
+    width: 160px;
+    text-align: center;
+}
+
+.page-description {
+    text-align: center;
+    color: #666;
+    margin: -4px 0 8px;
+}
