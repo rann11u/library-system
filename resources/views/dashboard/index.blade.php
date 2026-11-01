@@ -4,6 +4,11 @@
 
 @section('content')
 
+@if (session('success'))
+    <script>
+        alert(@json(session('success')));
+    </script>
+
     <h2>Library Sytem Dashboard</h2>
     <p>Selamat datang di Sistem Informasi Perpustakaan.</p>
 
@@ -24,5 +29,7 @@
     @else
         <p>Stok habis.</p>
     @endif
+
+@endif
 
 @endsection
